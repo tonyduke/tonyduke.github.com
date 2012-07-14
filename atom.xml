@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony 'Colabo' Do]]></title>
   <link href="http://tonyduke.github.com/atom.xml" rel="self"/>
   <link href="http://tonyduke.github.com/"/>
-  <updated>2012-07-14T17:29:48+08:00</updated>
+  <updated>2012-07-14T17:46:11+08:00</updated>
   <id>http://tonyduke.github.com/</id>
   <author>
     <name><![CDATA[Anthony]]></name>
@@ -12,6 +12,107 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[在LION环境建立PHP和MySQL的开发环境]]></title>
+    <link href="http://tonyduke.github.com/blog/2012/07/14/building-php-and-mysql-developing-environment-on-lion/"/>
+    <updated>2012-07-14T17:36:00+08:00</updated>
+    <id>http://tonyduke.github.com/blog/2012/07/14/building-php-and-mysql-developing-environment-on-lion</id>
+    <content type="html"><![CDATA[<h2>打开系统默认的Apache</h2>
+
+<p><strong>方法1：</strong></p>
+
+<p>打开System Prerences -> Sharing， 勾选Web Sharing即可</p>
+
+<p>访问 <a href="http://localhost/~anthony/" title="个人网站">http://localhost/~anthony/</a>可以打开个人网站存放地址</p>
+
+<p>该地址为 “/Users/anthony/Sites/”</p>
+
+<p>访问 <a href="http://localhost/" title="默认网站">http://localhost/</a>可以打开默认的网站存放地址</p>
+
+<p>该地址为 “/Library/WebServer/Documents”</p>
+
+<p><strong>方法2：</strong></p>
+
+<p>打开Terminal，输入命令</p>
+
+<pre><code>apachectl start
+</code></pre>
+
+<h2>启用root用户</h2>
+
+<p>使用root权限，默认的系统没有启用root帐号，选择System Preferences -> Users &amp; Groups</p>
+
+<p><img src="http://tonyduke.github.com/images/img4blog/enable_root_user_step1.png" title="enable_root_user_step1.png" alt="alt enable_root_user_step1.png" /></p>
+
+<p>图1－选择Open Directory Utility（图片在打开web sharing时才能查看）</p>
+
+<p><img src="http://tonyduke.github.com/images/img4blog/enable_root_user_step2.png" title="enable_root_user_step2.png" alt="alt enable_root_user_step2.png" /></p>
+
+<p>图1－选择Edit，设定Root用户（图片在打开web sharing时才能查看）</p>
+
+<h2>打开apache的PHP支持</h2>
+
+<ol>
+<li><p>打开apache配置文件</p>
+
+<ul>
+<li><p>进入apache目录</p>
+
+<pre><code>  cd /etc/apache2
+</code></pre></li>
+<li><p>赋予配置文件可写权限</p>
+
+<pre><code>  chmod 644 httpd.conf
+  vi httpd.conf
+</code></pre></li>
+</ul>
+</li>
+<li><p>打开其中的PHP设置，找到如下代码</p>
+
+<pre><code> #LoadModule php5_module libexec/apache2/libphp5.so
+</code></pre>
+
+<p> 将其注释打开，保存。</p></li>
+<li><p>创建PHP的配置文件</p>
+
+<pre><code> cp /etc/php.ini.default /etc/php.ini
+</code></pre>
+
+<p> 配置</p>
+
+<pre><code> ;通过下面两项来调整PHP提交文件的最大值，比如phpMyAdmin中导入数据的最大值
+ upload_max_filesize = 2M
+ post_max_size = 8M
+ ;比如通过display_errors来控制是否显示PHP程序的报错
+ display_errors = Off
+</code></pre></li>
+<li><p>设定时区，在php.ini中找到如下代码，设定时区</p>
+
+<pre><code> date.timezone = Asia/Shanghai
+</code></pre></li>
+<li><p>重启apache</p>
+
+<pre><code> sudo apachectl restart
+</code></pre></li>
+</ol>
+
+
+<h2>安装MySQL环境</h2>
+
+<ol>
+<li><p>下载MySQL 5.1。选择合适的版本，比如这里选择的是mysql-5.5.21-osx10.6-x86_64.dmg。</p></li>
+<li><p>运行dmg，会发现里面有4个文件。首先点击安装mysql-5.5.21-osx10.6-x86_64.pkg，这是MySQL的主安装包。一般情况下，安装文件会自动把MySQL安装到/usr/local下的同名文件夹下。比如点击运行“mysql-5.5.21-osx10.6-x86_64.dmg”会把MySQ安装到“/usr/local/mysql-5.5.21-osx10.6-x86_64”中。一路默认安装完毕即可。</p></li>
+<li><p>点击安装第2个文件MySQLStartupItem.pkg，这样MySQL就会自动在开机时自动启动了。</p></li>
+<li><p>点击安装第3个文件MySQL.prefPane，这样就会在“系统设置偏好”中看到名为“MySQL”的ICON，通过它就可以设置MySQL开始还是停止，以及是否开机时自动运行。到这里MySQL就基本安装完毕了。</p></li>
+<li><p>设置my.conf</p>
+
+<pre><code> sudo cp /usr/local/mysql/support-files/my-small.cnf /etc/my.cnf
+</code></pre></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[科技生产管理中的'法治']]></title>
