@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Anthony 'Colabo' Do]]></title>
+  <link href="http://tonyduke.github.com/atom.xml" rel="self"/>
+  <link href="http://tonyduke.github.com/"/>
+  <updated>2012-07-14T17:16:17+08:00</updated>
+  <id>http://tonyduke.github.com/</id>
+  <author>
+    <name><![CDATA[Anthony]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
