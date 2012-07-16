@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>在LION环境建立PHP和MySQL的开发环境 - Anthony 'Colabo' Do</title>
+  <title>在OSX(Lion)系统中建立PHP和MySQL的开发环境 - Anthony 'Colabo' Do</title>
   <meta name="author" content="Anthony">
 
   
-  <meta name="description" content="打开系统默认的Apache 方法1： 打开System Prerences -> Sharing， 勾选Web Sharing即可 访问 http://localhost/~anthony/可以打开个人网站存放地址 该地址为 “/Users/anthony/Sites/” 访问 http:// &hellip;">
+  <meta name="description" content="打开系统默认的Apache 方法1： 打开System Prerences -&gt; Sharing， 勾选Web Sharing即可 访问 http://localhost/~anthony/可以打开个人网站存放地址 该目录为 /Users/anthony/Sites/ 访问 http:// &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">在LION环境建立PHP和MySQL的开发环境</h1>
+      <h1 class="entry-title">在OSX(Lion)系统中建立PHP和MySQL的开发环境</h1>
     
     
       <p class="meta">
@@ -92,19 +92,19 @@
 
 <div class="entry-content"><h2>打开系统默认的Apache</h2>
 
-<p><strong>方法1：</strong></p>
+<h3>方法1：</h3>
 
-<p>打开System Prerences -> Sharing， 勾选Web Sharing即可</p>
+<p>打开<code>System Prerences -&gt; Sharing</code>， 勾选<code>Web Sharing</code>即可</p>
 
 <p>访问 <a href="http://localhost/~anthony/" title="个人网站">http://localhost/~anthony/</a>可以打开个人网站存放地址</p>
 
-<p>该地址为 “/Users/anthony/Sites/”</p>
+<p>该目录为 <code>/Users/anthony/Sites/</code></p>
 
 <p>访问 <a href="http://localhost/" title="默认网站">http://localhost/</a>可以打开默认的网站存放地址</p>
 
-<p>该地址为 “/Library/WebServer/Documents”</p>
+<p>该目录为 <code>/Library/WebServer/Documents</code></p>
 
-<p><strong>方法2：</strong></p>
+<h3>方法2：</h3>
 
 <p>打开Terminal，输入命令</p>
 
@@ -113,20 +113,20 @@
 
 <h2>启用root用户</h2>
 
-<p>使用root权限，默认的系统没有启用root帐号，选择System Preferences -> Users &amp; Groups</p>
+<p>使用root权限，默认的系统没有启用root帐号，选择<code>System Preferences -&gt; Users &amp; Groups</code></p>
 
 <p><img src="/images/img4blog/enable_root_user_step1.png" title="enable_root_user_step1.png" alt="alt enable_root_user_step1.png" /></p>
 
-<p>图1－选择Open Directory Utility（图片在打开web sharing时才能查看）</p>
+<p>图1－选择<code>Open Directory Utility</code>（图片在打开web sharing时才能查看）</p>
 
 <p><img src="/images/img4blog/enable_root_user_step2.png" title="enable_root_user_step2.png" alt="alt enable_root_user_step2.png" /></p>
 
-<p>图1－选择Edit，设定Root用户（图片在打开web sharing时才能查看）</p>
+<p>图2－选择<code>Edit</code>，设定Root用户（图片在打开<code>web sharing</code>时才能查看）</p>
 
 <h2>打开apache的PHP支持</h2>
 
 <ol>
-<li><p>打开apache配置文件</p>
+<li><p>将apache配置文件设置为可写模式</p>
 
 <ul>
 <li><p>进入apache目录</p>
@@ -140,12 +140,12 @@
 </code></pre></li>
 </ul>
 </li>
-<li><p>打开其中的PHP设置，找到如下代码</p>
+<li><p>打开其中的PHP设置找到如下代码</p>
 
 <pre><code> #LoadModule php5_module libexec/apache2/libphp5.so
 </code></pre>
 
-<p> 将其注释打开，保存。</p></li>
+<p> 将其注释去掉，保存。</p></li>
 <li><p>创建PHP的配置文件</p>
 
 <pre><code> cp /etc/php.ini.default /etc/php.ini
@@ -159,7 +159,7 @@
  ;比如通过display_errors来控制是否显示PHP程序的报错
  display_errors = Off
 </code></pre></li>
-<li><p>设定时区，在php.ini中找到如下代码，设定时区</p>
+<li><p>设定时区，在php.ini中找到如下代码，设定时区为<code>Asia/Shanghai</code></p>
 
 <pre><code> date.timezone = Asia/Shanghai
 </code></pre></li>
@@ -173,10 +173,10 @@
 <h2>安装MySQL环境</h2>
 
 <ol>
-<li><p>下载MySQL 5.1。选择合适的版本，比如这里选择的是mysql-5.5.21-osx10.6-x86_64.dmg。</p></li>
-<li><p>运行dmg，会发现里面有4个文件。首先点击安装mysql-5.5.21-osx10.6-x86_64.pkg，这是MySQL的主安装包。一般情况下，安装文件会自动把MySQL安装到/usr/local下的同名文件夹下。比如点击运行“mysql-5.5.21-osx10.6-x86_64.dmg”会把MySQ安装到“/usr/local/mysql-5.5.21-osx10.6-x86_64”中。一路默认安装完毕即可。</p></li>
-<li><p>点击安装第2个文件MySQLStartupItem.pkg，这样MySQL就会自动在开机时自动启动了。</p></li>
-<li><p>点击安装第3个文件MySQL.prefPane，这样就会在“系统设置偏好”中看到名为“MySQL”的ICON，通过它就可以设置MySQL开始还是停止，以及是否开机时自动运行。到这里MySQL就基本安装完毕了。</p></li>
+<li><p>下载MySQL 5.1。选择合适的版本，比如这里选择的是<code>mysql-5.5.21-osx10.6-x86_64.dmg</code>。</p></li>
+<li><p>运行dmg，会发现里面有4个文件。首先点击安装<code>mysql-5.5.21-osx10.6-x86_64.pkg</code>，这是MySQL的主安装包。一般情况下，安装文件会自动把MySQL安装到<code>/usr/local</code>下的同名文件夹下。比如点击运行<code>mysql-5.5.21-osx10.6-x86_64.dmg</code>会把MySQ安装到<code>/usr/local/mysql-5.5.21-osx10.6-x86_64</code>中。一路默认安装完毕即可。</p></li>
+<li><p>点击安装第2个文件<code>MySQLStartupItem.pkg</code>，这样MySQL就会自动在开机时自动启动了。</p></li>
+<li><p>点击安装第3个文件<code>MySQL.prefPane</code>，这样就会在<code>系统设置偏好</code>中看到名为<code>MySQL</code>的ICON，通过它就可以设置MySQL开始还是停止，以及是否开机时自动运行。到这里MySQL就基本安装完毕了。</p></li>
 <li><p>设置my.conf</p>
 
 <pre><code> sudo cp /usr/local/mysql/support-files/my-small.cnf /etc/my.cnf
@@ -238,7 +238,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/07/14/building-php-and-mysql-developing-environment-on-lion/">在LION环境建立PHP和MySQL的开发环境</a>
+        <a href="/blog/2012/07/14/building-php-and-mysql-developing-environment-on-lion/">在OSX(Lion)系统中建立PHP和MySQL的开发环境</a>
       </li>
     
       <li class="post">
