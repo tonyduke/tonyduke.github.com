@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony 'Colabo' Do]]></title>
   <link href="http://tonyduke.github.com/atom.xml" rel="self"/>
   <link href="http://tonyduke.github.com/"/>
-  <updated>2012-07-16T23:43:35+08:00</updated>
+  <updated>2012-07-18T00:13:01+08:00</updated>
   <id>http://tonyduke.github.com/</id>
   <author>
     <name><![CDATA[Anthony]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[设计一个windows 8风格的管理系统]]></title>
+    <link href="http://tonyduke.github.com/blog/2012/07/18/design-inspired-by-windows-8-style/"/>
+    <updated>2012-07-18T00:07:00+08:00</updated>
+    <id>http://tonyduke.github.com/blog/2012/07/18/design-inspired-by-windows-8-style</id>
+    <content type="html"><![CDATA[<p>查看了最近的新闻，发现大多数在报道windows 8的发售，偶尔看到的windows 8新风格的UI，觉得挺简洁，于是尝试模仿其风格设计Web-Based的管理系统，成果如下，确实挺简洁。</p>
+
+<p><img src="http://tonyduke.github.com/images/img4blog/Win8Style.png" title="/images/img4blog/Win8Style.png" alt="alt 截图" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[在OSX(Lion)系统中建立PHP和MySQL的开发环境]]></title>
