@@ -4,7 +4,7 @@
   <title><![CDATA[Anthony 'Colabo' Do]]></title>
   <link href="http://tonyduke.github.com/atom.xml" rel="self"/>
   <link href="http://tonyduke.github.com/"/>
-  <updated>2012-07-18T00:13:01+08:00</updated>
+  <updated>2012-07-18T00:22:16+08:00</updated>
   <id>http://tonyduke.github.com/</id>
   <author>
     <name><![CDATA[Anthony]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[第一张手绘：外星城堡]]></title>
+    <link href="http://tonyduke.github.com/blog/2012/07/18/sketch-of-a-alien-catsle/"/>
+    <updated>2012-07-18T00:19:00+08:00</updated>
+    <id>http://tonyduke.github.com/blog/2012/07/18/sketch-of-a-alien-catsle</id>
+    <content type="html"><![CDATA[<p>第一次用绘图板进行手绘学习，画了第一张，外星城堡</p>
+
+<p><img src="http://tonyduke.github.com/images/img4blog/Concept-AlienCatsle-preview.png" title="/images/img4blog/Concept-AlienCatsle-preview.png" alt="alt 截图" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[设计一个windows 8风格的管理系统]]></title>
