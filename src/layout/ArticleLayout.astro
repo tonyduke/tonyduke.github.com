@@ -1,0 +1,225 @@
+---
+import "@fontsource/poppins";
+import "@fontsource-variable/roboto-slab";
+
+import ArticleNavigator from "@/components/reusable/organisms/ArticleNavigator.astro";
+import HomeFooter from "@/components/unique/HomeFooter.astro";
+import Writers from "@/components/reusable/molecules/Writers.astro";
+import References from "@/components/reusable/molecules/References.astro";
+import ConditionalRender from "@/components/reusable/atoms/ConditionalRender.astro";
+import HomeHeader from "@/components/unique/HomeHeader.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={frontmatter.description} />
+		<meta name="keywords" content={frontmatter.keywords}>
+		<title>{frontmatter.title}</title>
+	</head>
+	<body>
+		<div
+			class="bg-zinc-900 text-neutral-50 pattern min-h-screen font-poppins"
+		>
+			<div class="sticky top-0 z-10">
+				<HomeHeader enableActionBtn={false} />
+			</div>
+			<section
+				class="bg-zinc-950 h-[7rem] bg-cover bg-center md:h-[15rem]"
+				style=`background-image: url(${frontmatter.banner || "/articles/img/defaultBanner.jpg"})`
+			>
+			</section>
+			<main class="max-w-[900px] px-4 mx-auto">
+				<div class="py-16">
+					<Writers
+						pubDate={frontmatter.pubDate}
+						author={frontmatter.author}
+						partners={frontmatter.partners}
+					/>
+					<slot />
+					<footer>
+						<ConditionalRender controller={frontmatter.references}>
+							<References list={frontmatter.references}/>
+						</ConditionalRender>
+					</footer>
+					<nav class="mt-16">
+						<ArticleNavigator
+							fileName = {frontmatter.articleName}
+						/>
+					</nav>
+				</div>
+			</main>
+			<HomeFooter />
+		</div>
+		<style is:inline>
+			:root {
+				--pinia: rgb(253 224 71);
+			}
+			h2 , h3 , h4{
+				margin: 2rem 0 !important;
+			}
+			h1 {
+				font-size: 2rem !important;
+				font-weight: 900 !important;
+				text-align: center;
+				font-family: "Roboto Slab Variable";
+				margin-bottom: 4rem !important;
+
+				text-decoration: underline wavy var(--pinia);
+				text-decoration-thickness: 2px;
+				text-underline-offset: 8px;
+			}
+			h2 {
+				font-size: 1.5rem !important;
+				
+
+				text-decoration: underline wavy pink;
+				text-decoration-thickness: 1.5px;
+				text-underline-offset: 8px;
+			}
+			h3 {
+				font-size: 1rem !important;
+				
+				text-decoration: underline wavy bisque;
+				text-decoration-thickness: 1.5px;
+				text-underline-offset: 8px;
+			}
+			h4 {
+				font-size: 1rem !important;
+				
+				text-decoration: underline wavy white;
+				text-decoration-thickness: 1.3px;
+				text-underline-offset: 8px;
+			}
+			p {
+				margin-bottom: 1rem !important;
+				font-weight: 300 !important;
+			}
+			pre {
+				margin: 1rem 0 !important;
+				border-radius: 1rem;
+				padding: 1rem;
+			}
+			ol,
+			ul,
+			pre,
+			{
+				/* margin-bottom: 2rem !important;
+				padding-left : 2rem !important; */
+			}
+			li{
+				margin-left: 2rem !important;
+				margin-bottom : 1rem !important;
+				position: relative;
+			}
+			li::before {
+				position: absolute;
+				left: 0;
+				top: 1/2;
+				transform: translateX(-200%) translateY(200%);
+				content: "";
+				width: 0.3rem;
+				margin-right: 0.5rem;
+				display: inline-block;
+				aspect-ratio: 1/1;
+				border-radius: 100%;
+				background-color: var(--pinia);
+			}
+			.pattern {
+				--line-color: rgba(255, 230, 0, 0.1);
+				--size: 10px;
+
+				background-image: radial-gradient(
+						transparent 30%,
+						rgb(24, 24, 27) 70%
+					),
+					linear-gradient(
+						90deg,
+						transparent 90%,
+						var(--line-color) 90%
+					),
+					linear-gradient(
+						0deg,
+						var(--line-color) 10%,
+						transparent 10%
+					);
+				background-size:
+					auto auto,
+					var(--size) var(--size),
+					var(--size) var(--size);
+			}
+			p > img{
+				aspect-ratio: 16/6 !important;
+				object-fit: cover !important;
+				width : 100% !important;
+				margin: 3rem 0 !important;
+			}
+			p > a , li > a{
+				color: #98ff98;
+			}
+			blockquote > p > a{
+				background-color: black;
+				padding: .1rem;
+				border-radius: .2rem;
+			}
+			p > a::after , li > a::after{
+				content: "";
+				display: inline-block;
+				margin-left: 2px;
+				background-image: url(/articles/svg/arrow_slide.svg);
+				background-size : cover;
+				width: 1rem;
+				aspect-ratio: 1/1;
+			}
+			p > a:hover , li > a:hover{
+				text-decoration: underline;
+				text-underline-offset: 4px;
+			}
+			em{
+				color: var(--pinia);
+			}
+			strong{
+				font-weight: 600 !important;
+			}
+			.img-default{
+				margin: 3rem 0 !important;
+			}
+			blockquote{				
+				margin-bottom: 2rem !important;
+				padding: .5rem;
+				border-radius: .5rem;
+				border-width: 2px;
+				border-style: solid;
+				outline-width: 2px;
+				outline-style: dashed;
+				outline-offset: 4px;
+			}
+			.warning{
+				color: black;
+				background-color: var(--pinia);
+				border-color:black;
+				outline-color: var(--pinia);
+			}
+			.error{
+				color: white;
+				background-color: red;
+				border-color:black;
+				outline-color: red;
+			}
+			.check{
+				color: black;
+				background-color: greenyellow;
+				border-color:black;
+				outline-color: greenyellow;
+			}
+			blockquote > p{
+				margin: 0 !important;
+			}
+		</style>
+	</body>
+</html>
